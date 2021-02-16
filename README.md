@@ -11,11 +11,8 @@ It is also compatible with Laravel Lumen.
 ## About MultiSafepay ##
 MultiSafepay is a collecting payment service provider which means we take care of the agreements, technical details and payment collection required for each payment method. You can start selling online today and manage all your transactions from one place.
 
-## Installation (Laravel 8)
+## Installation (Laravel 7/8)
 Run `composer require multisafepay/laravel-api http-interop/http-factory-guzzle`.
-
-## Installation (Laravel 7)
-Run `composer require multisafepay/laravel-api php-http/guzzle6-adapter http-interop/http-factory-guzzle`.
 
 ## Lumen
 ### Provider
