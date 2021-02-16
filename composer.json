@@ -1,7 +1,7 @@
 {
     "name": "multisafepay/laravel-api",
     "require": {
-        "multisafepay/php-sdk": "^4.0"
+        "multisafepay/php-sdk": "^5.0"
     },
     "autoload": {
         "psr-4": {
@@ -27,8 +27,7 @@
     },
     "require-dev": {
         "laravel/framework": "^7.15",
-        "guzzlehttp/psr7": "^1.6",
-        "php-http/guzzle6-adapter": "^2.0",
+        "guzzlehttp/guzzle": "^7.0",
         "http-interop/http-factory-guzzle": "^1.0"
     }
 }
