@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.multisafepay.com/img/multisafepaylogo.svg" alt="MultiSafepay logo" width="400px" position="center">
+  <img src="https://raw.githubusercontent.com/MultiSafepay/MultiSafepay-logos/master/MultiSafepay-logo-color.svg" alt="MultiSafepay logo" width="400px" position="center">
 </p>
 
 # MultiSafepay package for Laravel
@@ -9,26 +9,26 @@ It is also compatible with Laravel Lumen.
 [![Latest Stable Version](https://img.shields.io/packagist/v/multisafepay/laravel-api)](https://packagist.org/packages/multisafepay/laravel-api)
 
 ## About MultiSafepay ##
-MultiSafepay is a collecting payment service provider which means we take care of the agreements, technical details and payment collection required for each payment method. You can start selling online today and manage all your transactions from one place.
+MultiSafepay is a Dutch payment services provider, which takes care of contracts, processing transactions, and collecting payment for a range of local and international payment methods. Start selling online today and manage all your transactions in one place!
 
-## Installation (Laravel 7/8)
-Run `composer require multisafepay/laravel-api http-interop/http-factory-guzzle`.
+## Installation
+Run `composer require multisafepay/laravel-api`.
 
-## Lumen
-### Provider
-The following provider needs to be registered in the `bootstrap/app.php`. file.
+The MultiSafepay/laravel-api will be auto-discovered by Laravel
+
+_NOTE: within the Lumen instance, it is possible that you are receiving a message: ```missing psr/http-client-implementation```_ If this happens please install one of the following [Virtual packages](https://packagist.org/providers/psr/http-client-implementation)
+
+_NOTE: within the Lumen instance, you need to install the Facades and Providers as following within the `bootstrap/app.php`_
+
 ```PHP  
 $app->register(\MultiSafepay\Laravel\MultiSafepayServiceProvider::class);  
-```  
-### Facades 
-To enable facades they need to be registered in the `bootstrap/app.php`.
-```PHP  
+  
 $app->withFacades(true,  [
-"MultiSafepay\\Laravel\\Facades\\MultiSafepay" => "MultiSafepay",
-"MultiSafepay\\Laravel\\Facades\\MultiSafepayOrders" => "MultiSafepayOrders",
-"MultiSafepay\\Laravel\\Facades\\MultiSafepayGateways" => "MultiSafepayGateways",
-"MultiSafepay\\Laravel\\Facades\\MultiSafepayIssuers" => "MultiSafepayIssuers", 
-]);  
+    \MultiSafepay\Laravel\Facades\MultiSafepay::class => "MultiSafepay",
+    \MultiSafepay\Laravel\Facades\MultiSafepayTransactionManager::class => "MultiSafepayOrders",
+    \MultiSafepay\Laravel\Facades\MultiSafepayGatewayManager::class => "MultiSafepayGateways",
+    \MultiSafepay\Laravel\Facades\MultiSafepayCategoryManager::class => "MultiSafepayIssuers",
+]);
 ```
 
 ## Configuration
@@ -53,6 +53,8 @@ $transaction = $transactionManager->get('id');
 //Using facade accessor
 $transaction = MultiSafepayTransactionManager::get('id');
 ```
+
+For an extended usage documentation please check the [PHP-SDK usage file](https://github.com/MultiSafepay/php-sdk/blob/master/USAGE.md)
 
 ## Support
 You can create issues on our repository. If you need any additional help or support, please contact <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
