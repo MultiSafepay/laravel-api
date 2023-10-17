@@ -8,7 +8,6 @@ use MultiSafepay\Api\CategoryManager;
 use MultiSafepay\Api\GatewayManager;
 use MultiSafepay\Api\IssuerManager;
 use MultiSafepay\Api\TransactionManager;
-use MultiSafepay\Laravel\Sdk\PluginDetails;
 use MultiSafepay\Sdk;
 
 class MultiSafepayServiceProvider extends ServiceProvider
@@ -35,10 +34,7 @@ class MultiSafepayServiceProvider extends ServiceProvider
             $environment = $parameters['environment'] ?? $this->getConfig('environment', 'live');
             $isProduction = $this->getIsProduction($environment);
 
-            $sdk = new Sdk($apiKey, $isProduction);
-            $sdk->addPluginDetails(new PluginDetails());
-
-            return $sdk;
+            return new Sdk($apiKey, $isProduction);
         });
 
         $this->app->singleton(TransactionManager::class, function ($app, $parameters) {
