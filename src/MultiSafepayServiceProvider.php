@@ -4,6 +4,7 @@ namespace MultiSafepay\Laravel;
 
 use Exception;
 use Illuminate\Support\ServiceProvider;
+use MultiSafepay\Api\ApiTokenManager;
 use MultiSafepay\Api\CategoryManager;
 use MultiSafepay\Api\GatewayManager;
 use MultiSafepay\Api\IssuerManager;
@@ -51,6 +52,10 @@ class MultiSafepayServiceProvider extends ServiceProvider
 
         $this->app->singleton(CategoryManager::class, function ($app, $parameters) {
             return $app->makeWith(Sdk::class, $parameters)->getCategoryManager();
+        });
+
+        $this->app->singleton(ApiTokenManager::class, function ($app, $parameters) {
+            return $app->makeWith(Sdk::class, $parameters)->getApiTokenManager();
         });
     }
 

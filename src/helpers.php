@@ -34,3 +34,10 @@ if (! function_exists('multisafepayCategoryManager')) {
         return app()->makeWith(\MultiSafepay\Api\CategoryManager::class, ['apikey' => $apikey, 'environment' => $environment]);
     }
 }
+
+if (! function_exists('multisafepayApiTokenManager')) {
+    function multisafepayApiTokenManager($apikey = null, $environment = null)
+    {
+        return app()->makeWith(\MultiSafepay\Api\ApiTokenManager::class, ['apikey' => $apikey, 'environment' => $environment]);
+    }
+}

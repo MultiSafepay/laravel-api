@@ -1,7 +1,7 @@
 {
     "name": "multisafepay/laravel-api",
     "require": {
-        "multisafepay/php-sdk": "^5.0"
+        "multisafepay/php-sdk": "^5.11.0"
     },
     "autoload": {
         "psr-4": {
@@ -21,7 +21,8 @@
                 "MultiSafepayTransactionManager": "MultiSafepay\\Laravel\\Facades\\MultiSafepayTransactionManager",
                 "MultiSafepayGatewayManager": "MultiSafepay\\Laravel\\Facades\\MultiSafepayGatewayManager",
                 "MultiSafepayIssuerManager": "MultiSafepay\\Laravel\\Facades\\MultiSafepayIssuerManager",
-                "MultiSafepayCategoryManager": "MultiSafepay\\Laravel\\Facades\\MultiSafepayCategoryManager"
+                "MultiSafepayCategoryManager": "MultiSafepay\\Laravel\\Facades\\MultiSafepayCategoryManager",
+                "MultiSafepayApiTokenManager": "MultiSafepay\\Laravel\\Facades\\MultiSafepayApiTokenManager"
             }
         }
     },
