@@ -1,5 +1,9 @@
 {
     "name": "multisafepay/laravel-api",
+    "description": "Package for Laravel which wraps the MultiSafepay PHP-SDK",
+    "version": "1.2.0",
+    "type": "library",
+    "license": "MIT",
     "require": {
         "multisafepay/php-sdk": "^5.11"
     },
