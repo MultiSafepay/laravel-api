@@ -35,6 +35,20 @@ if (! function_exists('multisafepayCategoryManager')) {
     }
 }
 
+if (! function_exists('multisafepayPaymentMethodManager')) {
+    function multisafepayPaymentMethodManager($apikey = null, $environment = null)
+    {
+        return app()->makeWith(\MultiSafepay\Api\PaymentMethodManager::class, ['apikey' => $apikey, 'environment' => $environment]);
+    }
+}
+
+if (! function_exists('multisafepayTokenManager')) {
+    function multisafepayTokenManager($apikey = null, $environment = null)
+    {
+        return app()->makeWith(\MultiSafepay\Api\TokenManager::class, ['apikey' => $apikey, 'environment' => $environment]);
+    }
+}
+
 if (! function_exists('multisafepayApiTokenManager')) {
     function multisafepayApiTokenManager($apikey = null, $environment = null)
     {

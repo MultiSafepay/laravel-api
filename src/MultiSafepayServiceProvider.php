@@ -8,7 +8,9 @@ use MultiSafepay\Api\ApiTokenManager;
 use MultiSafepay\Api\CategoryManager;
 use MultiSafepay\Api\GatewayManager;
 use MultiSafepay\Api\IssuerManager;
+use MultiSafepay\Api\TokenManager;
 use MultiSafepay\Api\TransactionManager;
+use MultiSafepay\Api\PaymentMethodManager;
 use MultiSafepay\Sdk;
 
 class MultiSafepayServiceProvider extends ServiceProvider
@@ -53,9 +55,17 @@ class MultiSafepayServiceProvider extends ServiceProvider
         $this->app->singleton(CategoryManager::class, function ($app, $parameters) {
             return $app->makeWith(Sdk::class, $parameters)->getCategoryManager();
         });
-
+        
         $this->app->singleton(ApiTokenManager::class, function ($app, $parameters) {
             return $app->makeWith(Sdk::class, $parameters)->getApiTokenManager();
+        });
+
+        $this->app->singleton(PaymentMethodManager::class, function ($app, $parameters) {
+            return $app->makeWith(Sdk::class, $parameters)->getPaymentMethodManager();
+        });
+
+        $this->app->singleton(TokenManager::class, function ($app, $parameters) {
+            return $app->makeWith(Sdk::class, $parameters)->getTokenManager();
         });
     }
 
